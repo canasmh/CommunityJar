@@ -118,6 +118,7 @@ hr {
 }
 
 .btn-signup2:hover, .btn-login2:hover {
+  background-color: #FFF;
   border: 2px solid #F1AE46;
   color: #F1AE46;
 }
