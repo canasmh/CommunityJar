@@ -1,9 +1,9 @@
 /*
 COLORS
-teal: #3C848D
-gold: #F1AE46
-gray: #EFEFEC
-darker-gray: #D9D9D4
+teal: #3C848D;
+gold: #F1AE46;
+gray: #EFEFEC;
+darker-gray: #D9D9D4;
 */
 
 /*
@@ -14,6 +14,14 @@ font-family: 'Roboto Flex', sans-serif;
 */
 nav {
   background-color: #EFEFEC;
+}
+
+hr {
+  width: 15%;
+  color: #EFEFEC;
+  border-top: 3px solid #EFEFEC;
+  text-align: center;
+  margin: 2.5rem auto;
 }
 
 .navbar-brand, .navbar-brand:hover {
@@ -40,12 +48,14 @@ nav {
   background-color: #FFF;
   color: #F1AE46;
   border: 1px solid #F1AE46;
+  border-radius: 10px;
 }
 
 .btn-login {
   background-color: #FFF;
   color: #3C848D;
   border: 1px solid #3C848D;
+  border-radius: 10px;
 }
 
 .btn-signup:hover, .btn-login:hover {
@@ -60,4 +70,66 @@ nav {
 .btn-login:hover {
   color: #3C848D;
   border: 1px solid #3C848D;
+}
+
+.landing-page {
+  background-color: #3C848D;
+  position: relative;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.landing-header {
+  font-size: 3.5rem;
+  margin: 0 6rem;
+  color: #EFEFEC;
+  font-family:'Montserrat', sans-serif;
+  font-style:italic;
+}
+
+.my-btn-lg {
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  margin: 2rem 1rem 0.5rem;
+  border-radius: 10px;
+  font-family:'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+.btn-signup2 {
+  background-color: #FFF;
+  color: #3C848D;
+  border: 2px solid #3C848D;
+}
+
+.btn-login2 {
+  background-color: inherit;
+  color: #FFF;
+  border: 2px solid #FFF;
+}
+
+.btn-signup2:hover {
+  background-color: #EFEFEC;;
+}
+
+.btn-login2:hover {
+  background-color: inherit;
+  color: #D9D9D4;
+  border: 2px solid #D9D9D4;
+}
+
+.landing-img {
+  height: 30rem;
+  width: 30rem;
+  float: right;
+  margin-top: 2.5rem;
 }
