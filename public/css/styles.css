@@ -1,3 +1,63 @@
-h1 {
-  color: red;
+/*
+COLORS
+teal: #3C848D
+gold: #F1AE46
+gray: #EFEFEC
+darker-gray: #D9D9D4
+*/
+
+/*
+FONTS
+font-family: 'Damion', cursive;
+font-family:'Montserrat', sans-serif;
+font-family: 'Roboto Flex', sans-serif;
+*/
+nav {
+  background-color: #EFEFEC;
+}
+
+.navbar-brand, .navbar-brand:hover {
+  padding: 0;
+  font-family: 'Damion', cursive;
+  color: #F1AE46;
+  font-size: 3.5rem;
+}
+
+.nav-link, .btn-signup, .btn-login {
+  font-size: 1.5rem;
+  margin: auto 0.2rem;
+}
+
+.nav-link {
+  color: #3C848D;
+}
+
+.nav-link:hover {
+  color: #F1AE46;
+}
+
+.btn-signup {
+  background-color: #FFF;
+  color: #F1AE46;
+  border: 1px solid #F1AE46;
+}
+
+.btn-login {
+  background-color: #FFF;
+  color: #3C848D;
+  border: 1px solid #3C848D;
+}
+
+.btn-signup:hover, .btn-login:hover {
+  background-color: #EFEFEC;
+}
+
+.btn-signup:hover {
+  color: #F1AE46;
+  border: 1px solid #F1AE46;
+}
+
+.btn-login:hover {
+  color: #3C848D;
+  border: 1px solid #3C848D;
 }
