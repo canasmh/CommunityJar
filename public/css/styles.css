@@ -37,6 +37,8 @@ hr {
 
 .nav-link, .btn-signup, .btn-login {
   font-size: 1.2rem;
+  font-family:'Montserrat', sans-serif;
+  /* font-weight: 300; */
   margin: auto 0.2rem;
 }
 
@@ -190,4 +192,44 @@ hr {
 
 .plan-experience img {
   float: left;
+}
+
+#contact {
+  background-color: #3C848D;
+  color: #EFEFEC;
+  min-height: 40vh;
+  padding: 6rem 18rem;
+}
+
+#contact h2 {
+  font-family:'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 2.8rem;
+}
+
+#contact form {
+  margin: 3.5rem auto 1.5rem;
+}
+
+#contact label, button {
+  font-family:'Montserrat', sans-serif;
+  font-size: 1.5rem;
+}
+
+#contact button {
+  background-color: inherit;
+  margin: 1rem 0 0.5rem;
+  padding: 0.5rem 3rem;
+  color: #EFEFEC;
+  border: 2px solid #EFEFEC;
+  border-radius: 10px;
+}
+
+#contact button:hover {
+  background-color: #EFEFEC;
+  margin: 1rem 0 0.5rem;
+  padding: 0.5rem 3rem;
+  color: #3C848D;
+  border: 2px solid #3C848D;
+  border-radius: 10px;
 }
