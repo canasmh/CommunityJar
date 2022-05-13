@@ -13,128 +13,142 @@ font-family:'Montserrat', sans-serif;
 font-family: 'Roboto Flex', sans-serif;
 */
 
-
-
+/* CSS BREAK POINTS
+small devices: 600px
+medium devices: 768px
+large devices: 992px
+extra large devices: 1200px
+*/
 nav {
   background-color: #EFEFEC;
-}
-
-
-hr {
-  width: 15%;
-  color: #EFEFEC;
-  border-top: 3px solid #EFEFEC;
-  text-align: center;
-  margin: 2.5rem auto;
 }
 
 .navbar-brand, .navbar-brand:hover {
   padding: 0;
   font-family: 'Damion', cursive;
-  color: #F1AE46;
-  font-size: 3rem;
+  color: #F1AE46 !important;
+  font-size: 2.5rem;
+}
+.navbar-toggler {
+  color: #F1AE46 !important;
 }
 
 .nav-link, .btn-signup, .btn-login {
   font-size: 1.2rem;
   font-family:'Montserrat', sans-serif;
-  /* font-weight: 300; */
-  margin: auto 0.2rem;
+  margin: 0.2rem;
 }
 
 .nav-link {
-  color: #3C848D;
+  color: #3C848D !important;
 }
 
 .nav-link:hover {
-  color: #F1AE46;
+  color: #F1AE46 !important;
 }
 
 .btn-signup {
   background-color: #FFF;
   color: #3C848D;
   border: 1px solid #3C848D;
-  border-radius: 10px;
 }
 
 .btn-login {
   background-color: inherit;
   color: #3C848D;
   border: 1px solid #3C848D;
-  border-radius: 10px;
 }
 
-.btn-signup:hover {
-  background-color: #FFF;
+.btn-signup, .btn-login {
+  width: 50%;
+}
+
+.btn-signup:hover, .btn-login:hover {
   color: #F1AE46;
   border: 1px solid #F1AE46;
 }
 
-.btn-login:hover {
-  color: #F1AE46;
-  border: 1px solid #F1AE46;
+@media only screen and (min-width: 992px) {
+
+  .navbar-brand, .navbar-brand:hover {
+    font-size: 3rem;
+  }
+
+  .btn-signup, .btn-login {
+    width: 8rem;
+  }
 }
 
-.landing-page {
-  background-color: #3C848D;
-  position: relative;
-  min-height: 80vh;
-  text-align: center;
-}
+@media only screen and (min-width: 992px) {
+  .landing-page {
+    background-color: #3C848D;
+    position: relative;
+    min-height: 80vh;
+    text-align: center;
+  }
 
-.vertical-center {
-  margin: 0;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
 
-.landing-header {
-  font-size: 3.5rem;
-  margin: 0 6rem;
-  color: #EFEFEC;
-  font-family:'Montserrat', sans-serif;
-  font-style:italic;
-}
+  .landing-header {
+    font-size: 3.5rem;
+    margin: 0 6rem;
+    color: #EFEFEC;
+    font-family:'Montserrat', sans-serif;
+    font-style:italic;
+  }
 
-.my-btn-lg {
-  font-size: 1.5rem;
-  padding: 1rem 3rem;
-  margin: 2rem 1rem 0.5rem;
-  border-radius: 10px;
-  font-family:'Montserrat', sans-serif;
-  cursor: pointer;
-}
+  hr {
+    width: 15%;
+    color: #EFEFEC;
+    border-top: 3px solid #EFEFEC;
+    text-align: center;
+    margin: 2.5rem auto;
+  }
 
-.btn-signup2 {
-  background-color: #FFF;
-  color: #3C848D;
-  border: 2px solid #3C848D;
-}
+  .my-btn-lg {
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    margin: 2rem 1rem 0.5rem;
+    border-radius: 10px;
+    font-family:'Montserrat', sans-serif;
+    cursor: pointer;
+  }
 
-.btn-login2 {
-  background-color: inherit;
-  color: #FFF;
-  border: 2px solid #FFF;
-}
-.btn-login2:hover {
-  border: 2px solid #F1AE46;
-  color: #F1AE46;
-}
+  .btn-signup2 {
+    background-color: #FFF;
+    color: #3C848D;
+    border: 2px solid #3C848D;
+  }
 
-.btn-signup2:hover {
-  background-color: #FFF;
-  border: 2px solid #F1AE46;
-  color: #F1AE46;
-}
+  .btn-login2 {
+    background-color: inherit;
+    color: #FFF;
+    border: 2px solid #FFF;
+  }
+  .btn-login2:hover {
+    border: 2px solid #F1AE46;
+    color: #F1AE46;
+  }
 
-.landing-img {
-  height: 30rem;
-  width: 30rem;
-  float: right;
-  margin-top: 2.5rem;
+  .btn-signup2:hover {
+    background-color: #FFF;
+    border: 2px solid #F1AE46;
+    color: #F1AE46;
+  }
+
+  .landing-img {
+    height: 30rem;
+    width: 30rem;
+    float: right;
+    margin-top: 2.5rem;
+  }
 }
 
 #about {
@@ -151,7 +165,7 @@ hr {
 
 #about h2 {
   font-family: 'Damion', cursive;
-  font-size: 2.8rem;
+  font-size: 3rem;
   color: #F1AE46;
 }
 
