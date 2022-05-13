@@ -15,6 +15,18 @@ app.get("/", function(req, res) {
   res.render('index', {year: currentYear});
 });
 
+app.post("/", function(req, res) {
+  res.send("Wow, it works!")
+});
+
+app.get("/signup", function(req, res) {
+  res.send("This is going to be the sign up page")
+});
+
+app.get("/login", function(req, res) {
+  res.send("This is going to be the login page")
+});
+
 app.listen(PORT, function() {
   console.log(`listening on port ${PORT}`)
 });
