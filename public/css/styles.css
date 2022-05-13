@@ -60,7 +60,7 @@ nav {
 }
 
 .btn-signup, .btn-login {
-  width: 50%;
+  width: 100%;
 }
 
 .btn-signup:hover, .btn-login:hover {
@@ -71,10 +71,6 @@ nav {
 @media only screen and (min-width: 600px) {
   .navbar-brand, .navbar-brand:hover {
     font-size: 3rem;
-  }
-
-  .btn-signup, .btn-login {
-    width: 12.5rem;
   }
 
   .nav-link, .btn-signup, .btn-login {
