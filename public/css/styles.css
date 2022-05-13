@@ -12,9 +12,13 @@ font-family: 'Damion', cursive;
 font-family:'Montserrat', sans-serif;
 font-family: 'Roboto Flex', sans-serif;
 */
+
+
+
 nav {
   background-color: #EFEFEC;
 }
+
 
 hr {
   width: 15%;
@@ -28,11 +32,11 @@ hr {
   padding: 0;
   font-family: 'Damion', cursive;
   color: #F1AE46;
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 .nav-link, .btn-signup, .btn-login {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: auto 0.2rem;
 }
 
@@ -46,30 +50,27 @@ hr {
 
 .btn-signup {
   background-color: #FFF;
-  color: #F1AE46;
-  border: 1px solid #F1AE46;
-  border-radius: 10px;
-}
-
-.btn-login {
-  background-color: #FFF;
   color: #3C848D;
   border: 1px solid #3C848D;
   border-radius: 10px;
 }
 
-.btn-signup:hover, .btn-login:hover {
-  background-color: #EFEFEC;
+.btn-login {
+  background-color: inherit;
+  color: #3C848D;
+  border: 1px solid #3C848D;
+  border-radius: 10px;
 }
 
 .btn-signup:hover {
+  background-color: #FFF;
   color: #F1AE46;
   border: 1px solid #F1AE46;
 }
 
 .btn-login:hover {
-  color: #3C848D;
-  border: 1px solid #3C848D;
+  color: #F1AE46;
+  border: 1px solid #F1AE46;
 }
 
 .landing-page {
@@ -116,8 +117,12 @@ hr {
   color: #FFF;
   border: 2px solid #FFF;
 }
+.btn-login2:hover {
+  border: 2px solid #F1AE46;
+  color: #F1AE46;
+}
 
-.btn-signup2:hover, .btn-login2:hover {
+.btn-signup2:hover {
   background-color: #FFF;
   border: 2px solid #F1AE46;
   color: #F1AE46;
@@ -128,4 +133,61 @@ hr {
   width: 30rem;
   float: right;
   margin-top: 2.5rem;
+}
+
+#about {
+  background-color: #D9D9D4;/*#EFEFEC;*/
+  padding: 5rem 8rem;
+  text-align: center;
+  line-height: 2;
+  letter-spacing: 2px;
+}
+
+#about h2, #about h3, #about p {
+  margin: 2rem auto;
+}
+
+#about h2 {
+  font-family: 'Damion', cursive;
+  font-size: 2.8rem;
+  color: #F1AE46;
+}
+
+#about h3 {
+  font-family:'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  color: #3C848D;
+}
+
+#about p {
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 1.5rem;
+}
+
+#about img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
+  margin: 1.2rem 2.5rem 0.5rem;
+}
+
+.our-mission {
+  margin: 0 12.5rem;
+  min-height: 40vh;
+}
+
+.challenge-yourself, .plan-experience {
+  min-height: 55vh;
+}
+
+.challenge-yourself p, .plan-experience p {
+  text-align: left;
+}
+
+.challenge-yourself img {
+  float: right;
+}
+
+.plan-experience img {
+  float: left;
 }
