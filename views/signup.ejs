@@ -1,0 +1,18 @@
+<%- include('header') -%>
+<div class="signup">
+  <h2>Don't Worry,</h2>
+  <p>Making an account is <span class='easy'>easy</span>.</p>
+  <form class="signup-form" action="/signup" method="post">
+      <input type="text" id="fName" name="fName" placeholder="First Name">
+      <input type="text" id="lName" name="lName" placeholder="Last Name">
+      <input type="email" id="emailAddress" name="emailAddress" placeholder="Email Address">
+      <input type="password" id="password" name="password1" placeholder="Password">
+      <input type="password" id="confirmPassword" name="password2" placeholder="Confirm Password">
+      <br />
+      <button type="submit" name="signUpButton">Sign Up</button>
+
+  </form>
+  <p>Already have an acount? Log in <a href="/login" class='easy'>here!</a>
+</div>
+
+<%- include('footer') -%>

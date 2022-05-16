@@ -408,3 +408,103 @@ footer p {
     padding: 1.2rem 0;
   }
 }
+
+.signup, .login {
+  background-color: #3C848D;
+  min-height: 85vh;
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+}
+
+.signup h2, .login h2 {
+  color: #FFF;
+  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  margin: 1.2rem auto;
+}
+
+.signup p, .login p {
+  color: #FFF;
+  font-size: 1.2rem;
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+.easy {
+  color: #F1AE46;
+  font-family: 'Damion', cursive;
+  font-size: 1.5rem;
+}
+
+a.easy:hover {
+  color: #EFEFEC;
+}
+
+.signup-form, .login-form {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.signup-form input, .login-form input{
+  width: 80%;
+  display: inline-block;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  background-color: #2b6269;
+  border: 1px solid #D9D9D4;
+  border-radius: 10px;
+  color: #FFF;
+  font-family: 'Roboto Flex', sans-serif;
+  letter-spacing: 2px;
+
+}
+
+.signup-form input::placeholder, .login-form input::placeholder {
+  color: #D9D9D4;
+  font-family: 'Roboto Flex', sans-serif;
+  letter-spacing: 2px;
+
+}
+
+.signup-form button, .login-form button {
+  display: inline-block;
+  margin: 0.5rem auto;
+  width: 80%;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  color: #D9D9D4;
+  background-color: inherit;
+  letter-spacing: 2px;
+  border: 1px solid #D9D9D4;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.signup-form button:hover, .login-form button:hover {
+  color: #F1AE46;
+  border: 1px solid #F1AE46;
+}
+
+@media only screen and (min-width: 992px) {
+
+  .signup h2, .login h2 {
+    font-size: 2.5rem;
+  }
+
+  .signup p, .login p {
+    font-size: 1.5rem;
+  }
+
+  .easy {
+    font-size: 1.8rem;
+  }
+
+  .signup-form, .login-form {
+    margin: 1rem auto;
+    text-align: center;
+  }
+
+  .signup-form input, .login-form input, .signup-form button, .login-form button{
+    width: 50%;
+
+  }
+
+}
