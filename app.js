@@ -20,11 +20,11 @@ app.post("/", function(req, res) {
 });
 
 app.get("/signup", function(req, res) {
-  res.send("This is going to be the sign up page")
+  res.render('signup', {year: currentYear});
 });
 
 app.get("/login", function(req, res) {
-  res.send("This is going to be the login page")
+  res.render('login', {year: currentYear});
 });
 
 app.listen(PORT, function() {
