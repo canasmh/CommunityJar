@@ -50,7 +50,7 @@ app.get("/", function(req, res) {
 
 
 app.post("/", function(req, res) {
-  res.json(req.body.fullName)
+  res.json({fullName: req.body.fullName, email: req.body.email, message: req.body.message})
 });
 
 app.get("/signup", function(req, res) {
