@@ -502,9 +502,30 @@ a.easy:hover {
     text-align: center;
   }
 
-  .signup-form input, .login-form input, .signup-form button, .login-form button{
+  .signup-form input, .login-form input, .signup-form button, .login-form button {
     width: 50%;
-
   }
+}
 
+.dashboard {
+  display: block;
+  min-height: 90vh;
+  width: 100vw;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.add-jar {
+  background-color: #3C848D;
+  color: #EFEFEC;
+}
+
+.fa-circle-plus {
+  font-size: 3.5rem;
+  color: #F1AE46;
+  margin: 5rem auto;
+}
+
+.user-jars {
+  background-color: #F1AE46;
 }
