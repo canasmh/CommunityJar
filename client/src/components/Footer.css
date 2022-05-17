@@ -1,0 +1,28 @@
+
+footer {
+    background-color: #EFEFEC;
+    font-size: 0.8rem;
+    font-family:'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 100;
+    padding: 0.8rem 0;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  @media only screen and (min-width: 600px) {
+    footer {
+      font-size: 1rem;
+      padding: 1rem 0;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    footer {
+      font-size: 1.2rem;
+      padding: 1.2rem 0;
+    }
+  }
