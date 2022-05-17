@@ -1,22 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import NavigationMenu from "./NavigationMenu"
 
 function App() {
+  const [data, setData] = React.useState({fName: null, lName: null, email: null, jars: []});
+
+  React.useEffect(() => {
+    fetch("/fetch-data")
+      .then((res) => res.json())
+      .then((data) => setData({fName: data.fName, lName: data.lName, email: data.email, jars: data.jars}));
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <NavigationMenu isAuth={data.fName}/>
+      <header>
+        <p>{!data.fName ? "Loading..." : "Hello, " + data.fName + " " + data.lName}</p>
+        
       </header>
     </div>
   );
