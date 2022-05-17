@@ -7,7 +7,7 @@ const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 const mongoURI = 'mongodb://localhost:27017/CommunityJarDB';
 
 const app = express();
