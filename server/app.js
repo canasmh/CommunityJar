@@ -13,7 +13,7 @@ const mongoURI = 'mongodb://localhost:27017/CommunityJarDB';
 
 const app = express();
 app.use(express.static(path.resolve(__dirname, '../client/build')));
-app.use(express.static("public"));
+// app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -48,9 +48,10 @@ app.get("/", function(req, res) {
   res.render('index', {year: currentYear, isAuth: req.session.isAuth});
 });
 
-// app.post("/", function(req, res) {
-//   res.send("Wow, it works!")
-// });
+
+app.post("/", function(req, res) {
+  res.json(req.body.fullName)
+});
 
 app.get("/signup", function(req, res) {
   res.render('signup', {year: currentYear, isAuth: req.session.isAuth});
