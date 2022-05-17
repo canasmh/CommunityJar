@@ -1,27 +1,42 @@
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const mongoose = require("mongoose");
-// const session = require('express-session');
-// const passport = require("passport")
-// const passportLocalMongoose = require("passport-local-mongoose")
+const session = require('express-session');
+const MongoDBSession = require('connect-mongodb-session')(session);
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const app = express();
 const PORT = process.env.PORT || 3000
+const mongoURI = 'mongodb://localhost:27017/CommunityJarDB';
 
+const app = express();
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-mongoose.connect('mongodb://localhost:27017/userDB', {useNewUrlParser: true});
+const connection = mongoose.connect(mongoURI, {useNewUrlParser: true});
+
+const sessionStore = new MongoDBSession({
+  uri: mongoURI,
+  collection: 'mySessions'
+})
+
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: sessionStore,
+  cookie: { maxAge: 1000 * 60 * 60 * 24 * 7} // A week
+}))
 
 const userSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
-  email: String,
-  password: String
+  firstName: {type: String, required: true},
+  lastName: {type: String, required: true},
+  email: {type: String, required: true},
+  password: {type: String, required: true},
+  jars: {type: Array, default: []}
 });
 
 const User = new mongoose.model("User", userSchema);
@@ -29,15 +44,15 @@ const User = new mongoose.model("User", userSchema);
 const currentYear = new Date().getFullYear();
 
 app.get("/", function(req, res) {
-  res.render('index', {year: currentYear});
+  res.render('index', {year: currentYear, isAuth: req.session.isAuth});
 });
 
-app.post("/", function(req, res) {
-  res.send("Wow, it works!")
-});
+// app.post("/", function(req, res) {
+//   res.send("Wow, it works!")
+// });
 
 app.get("/signup", function(req, res) {
-  res.render('signup', {year: currentYear});
+  res.render('signup', {year: currentYear, isAuth: req.session.isAuth});
 });
 
 app.post("/signup", function(req, res) {
@@ -57,7 +72,8 @@ app.post("/signup", function(req, res) {
         if (err2) {
           console.log(`Error saving user: ${err2}`)
         } else {
-          res.redirect('/')
+          req.session.isAuth = true;
+          res.redirect('/dashboard');
         }
       })
     }
@@ -65,7 +81,48 @@ app.post("/signup", function(req, res) {
 });
 
 app.get("/login", function(req, res) {
-  res.render('login', {year: currentYear});
+  res.render('login', {year: currentYear, isAuth: req.session.isAuth});
+});
+
+app.post("/login", function(req, res) {
+  User.findOne({email: req.body.emailAddress}, function(err, user) {
+    if (err) {
+      console.log(`Error logging in: ${err}`);
+      res.redirect("/login")
+    } else if (user) {
+      bcrypt.compare(req.body.password, user.password, function(err2, result) {
+        if (err2) {
+          console.log(`Error comparing passwords: ${err2}`)
+        } else {
+          req.session.isAuth = true;
+          res.redirect('/dashboard')
+        }
+
+      });
+    } else {
+      console.log(`No errors, but no users found`)
+      res.redirect("/login")
+    }
+  });
+});
+
+app.get("/dashboard", function(req, res) {
+  if (req.session.isAuth) {
+    res.send("Authenticated");
+  } else {
+    res.send("Not authenticated")
+  }
+
+});
+
+app.post("/logout", function(req, res) {
+  req.session.destroy(function(err) {
+     if (err) {
+       console.log(`Error logging out: ${err}`)
+     } else {
+       res.redirect('/');
+     }
+  });
 });
 
 app.listen(PORT, function() {
