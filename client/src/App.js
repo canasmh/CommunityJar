@@ -5,6 +5,7 @@ import Home from './pages';
 import SignUp from './pages/signup';
 import LogIn from './pages/login';
 import Dashboard from './pages/dashboard'
+import Footer from './components/Footer';
 
 function App() {
   const [data, setData] = React.useState({fName: null, lName: null, email: null, jars: []});
@@ -24,7 +25,9 @@ function App() {
         <Route path='/signup' element={<SignUp/>} />
         <Route path='Dashboard' element={<Dashboard />} />
       </Routes>
+      <Footer />
     </Router>
+    
   );
 }
 
