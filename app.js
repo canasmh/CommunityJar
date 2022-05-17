@@ -107,10 +107,13 @@ app.post("/login", function(req, res) {
 });
 
 app.get("/dashboard", function(req, res) {
+  // TODO: upon clicking, reveal a div that shows the three different types of jars
+  // After clicking the three jars, show a form where people can add friends to the community jar
+  // Once they finish adding users, send them to the newly created jar.
   if (req.session.isAuth) {
-    res.send("Authenticated");
+    res.render('dashboard', {year: currentYear, isAuth: req.session.isAuth})
   } else {
-    res.send("Not authenticated")
+    res.redirect('/login')
   }
 
 });
