@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
@@ -15,7 +15,6 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
-
 const connection = mongoose.connect(mongoURI, {useNewUrlParser: true});
 
 const sessionStore = new MongoDBSession({
@@ -24,7 +23,7 @@ const sessionStore = new MongoDBSession({
 })
 
 app.use(session({
-  secret: process.env.SECRET,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store: sessionStore,
