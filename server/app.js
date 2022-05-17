@@ -6,12 +6,14 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
 const bcrypt = require('bcrypt');
+const path = require('path')
 const saltRounds = 10;
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 const mongoURI = 'mongodb://localhost:27017/CommunityJarDB';
 
 const app = express();
-app.use(express.static("public"));
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+// app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -46,9 +48,10 @@ app.get("/", function(req, res) {
   res.render('index', {year: currentYear, isAuth: req.session.isAuth});
 });
 
-// app.post("/", function(req, res) {
-//   res.send("Wow, it works!")
-// });
+
+app.post("/", function(req, res) {
+  res.json(req.body.fullName)
+});
 
 app.get("/signup", function(req, res) {
   res.render('signup', {year: currentYear, isAuth: req.session.isAuth});
@@ -72,6 +75,7 @@ app.post("/signup", function(req, res) {
           console.log(`Error saving user: ${err2}`)
         } else {
           req.session.isAuth = true;
+          req.session.user = { fName: newUser.firstName, lName: newUser.lastName, email: newUser.email, jars: newUser.jars};
           res.redirect('/dashboard');
         }
       })
@@ -82,6 +86,8 @@ app.post("/signup", function(req, res) {
 app.get("/login", function(req, res) {
   res.render('login', {year: currentYear, isAuth: req.session.isAuth});
 });
+
+
 
 app.post("/login", function(req, res) {
   User.findOne({email: req.body.emailAddress}, function(err, user) {
@@ -94,6 +100,7 @@ app.post("/login", function(req, res) {
           console.log(`Error comparing passwords: ${err2}`)
         } else {
           req.session.isAuth = true;
+          req.session.user= { fName: user.firstName, lName: user.lastName, email: user.email, jars: user.jars};
           res.redirect('/dashboard')
         }
 
@@ -105,16 +112,20 @@ app.post("/login", function(req, res) {
   });
 });
 
+app.get("/fetch-data", (req, res) => {
+  res.json({ fName: req.session.user.fName, lName: req.session.user.lName, email: req.session.user.email, jars: req.session.user.jars});
+  
+});
+
 app.get("/dashboard", function(req, res) {
   // TODO: upon clicking, reveal a div that shows the three different types of jars
   // After clicking the three jars, show a form where people can add friends to the community jar
   // Once they finish adding users, send them to the newly created jar.
   if (req.session.isAuth) {
-    res.render('dashboard', {year: currentYear, isAuth: req.session.isAuth})
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
   } else {
     res.redirect('/login')
   }
-
 });
 
 app.post("/logout", function(req, res) {

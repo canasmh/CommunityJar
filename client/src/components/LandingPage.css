@@ -1,0 +1,121 @@
+
+.landing-page {
+    background-color: #3C848D;
+    min-height: 85vh;
+    text-align: center;
+    padding: 4rem 1rem 3rem;
+  }
+  
+  .landing-header {
+    font-size: 2rem;
+    color: #EFEFEC;
+    font-family:'Montserrat', sans-serif;
+    font-style:italic;
+  }
+  
+  hr {
+    width: 30%;
+    color: #EFEFEC;
+    border-top: 1px solid #EFEFEC;
+    text-align: center;
+    margin: 1.2rem auto;
+  }
+  
+  .landing-img {
+    height: 15rem;
+    width: 15rem;
+    margin-top: 2.5rem;
+  }
+  
+  .my-btn {
+    font-size: 1.5rem;
+    padding: 0.6rem 3rem;
+    margin: 1.2rem 0.2rem 0.2rem;
+    letter-spacing: 2px;
+    font-family:'Montserrat', sans-serif;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .btn-signup2 {
+    background-color: #FFF;
+    color: #3C848D;
+    border: 2px solid #3C848D;
+  }
+  
+  .btn-login2 {
+    background-color: inherit;
+    color: #FFF;
+    border: 2px solid #FFF;
+  }
+  .btn-login2:hover {
+    border: 2px solid #F1AE46;
+    color: #F1AE46;
+  }
+  
+  .btn-signup2:hover {
+    background-color: #FFF;
+    border: 2px solid #F1AE46;
+    color: #F1AE46;
+  }
+  
+  @media only screen and (min-width: 600px) {
+  
+    .landing-header {
+      font-size: 3rem;
+      margin: 0 6rem;
+    }
+  
+    hr {
+      width: 15%;
+      border-top: 2px solid #EFEFEC;
+      margin: 1.5rem auto;
+    }
+  
+    .my-btn {
+      padding: 1rem 3rem;
+      margin: 2rem 1rem 0.5rem;
+      width: 50%;
+    }
+  
+    .landing-img {
+      height: 25rem;
+      width: 25rem;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+  
+    .landing-page {
+      position: relative;
+    }
+  
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+  
+    .landing-header {
+      font-size: 3rem;
+    }
+  
+    hr {
+      margin: 2.5rem auto;
+    }
+  
+    .my-btn {
+      border-radius: 10px;
+      width: 15rem;
+    }
+  
+    .landing-img {
+      height: 30rem;
+      width: 30rem;
+      float: right;
+      margin-top: 2.5rem;
+    }
+  }
