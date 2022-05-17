@@ -25,7 +25,7 @@ function ContactForm() {
             <Form.Group as={Row} className="mb-3">
                 <Form.Label column sm="2" for="message">Message: </Form.Label>
                 <Col sm="10">
-                    <Form.Control type="textarea" rows={8} placeholder="Write your message here..." id="message" name="message" />
+                    <Form.Control as="textarea" rows={8} placeholder="Write your message here..." id="message" name="message" />
                 </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3">
