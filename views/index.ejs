@@ -8,8 +8,10 @@
         <h2 class="landing-header">Challenge Yourself</h2>
         <hr>
         <h2 class="landing-header">Plan an Experience</h2>
-        <a href="/login"><button class="my-btn btn-login2" type="button" name="logIn">Log In</button></a>
-        <a href="/signup"><button class="my-btn btn-signup2" type="button" name="signUp">Sign Up</button></a>
+        <% if (!isAuth) { %>
+          <a href="/login"><button class="my-btn btn-login2" type="button" name="logIn">Log In</button></a>
+          <a href="/signup"><button class="my-btn btn-signup2" type="button" name="signUp">Sign Up</button></a>
+        <% } %>
       </div>
     </div>
     <div class="col-lg-6">
