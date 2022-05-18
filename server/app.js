@@ -6,7 +6,9 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
 const bcrypt = require('bcrypt');
-const path = require('path')
+const path = require('path');
+const res = require('express/lib/response');
+const req = require('express/lib/request');
 const saltRounds = 10;
 const PORT = process.env.PORT || 3001
 const mongoURI = 'mongodb://localhost:27017/CommunityJarDB';
@@ -45,7 +47,7 @@ const User = new mongoose.model("User", userSchema);
 const currentYear = new Date().getFullYear();
 
 app.get("/", function(req, res) {
-  res.render('index', {year: currentYear, isAuth: req.session.isAuth});
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 });
 
 
@@ -54,7 +56,7 @@ app.post("/", function(req, res) {
 });
 
 app.get("/signup", function(req, res) {
-  res.render('signup', {year: currentYear, isAuth: req.session.isAuth});
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 });
 
 app.post("/signup", function(req, res) {
@@ -66,7 +68,7 @@ app.post("/signup", function(req, res) {
       const newUser = new User({
         firstName: req.body.fName,
         lastName: req.body.lName,
-        email: req.body.emailAddress,
+        email: req.body.email,
         password: hash
       });
 
@@ -84,13 +86,12 @@ app.post("/signup", function(req, res) {
 });
 
 app.get("/login", function(req, res) {
-  res.render('login', {year: currentYear, isAuth: req.session.isAuth});
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 });
 
 
-
 app.post("/login", function(req, res) {
-  User.findOne({email: req.body.emailAddress}, function(err, user) {
+  User.findOne({email: req.body.email}, function(err, user) {
     if (err) {
       console.log(`Error logging in: ${err}`);
       res.redirect("/login")
@@ -112,9 +113,12 @@ app.post("/login", function(req, res) {
   });
 });
 
-app.get("/fetch-data", (req, res) => {
+app.get("/fetchData", (req, res) => {
   res.json({ fName: req.session.user.fName, lName: req.session.user.lName, email: req.session.user.email, jars: req.session.user.jars});
-  
+});
+
+app.get("/isAuth", function(req, res) {
+  res.json({ isAuth: req.session.isAuth })
 });
 
 app.get("/dashboard", function(req, res) {
