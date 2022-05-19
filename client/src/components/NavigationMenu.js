@@ -4,7 +4,17 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import "./NavigationMenu.css";
 
-function NavigationMenu(props) {
+function NavigationMenu() {
+
+    const [isAuth, setIsAuth] = React.useState(false);
+
+    React.useEffect(() => {
+        fetch("/isAuth")
+        .then(response => response.json())
+        .then (data => setIsAuth(data.isAuth))
+    })
+
+
     return (
     <Navbar bg="light" expand="lg" sticky="top">
         <Container fluid>
@@ -14,10 +24,10 @@ function NavigationMenu(props) {
                 <Nav className="ms-auto">
                 <Nav.Link href="/#about">About</Nav.Link>
                 <Nav.Link href="/#contact">Contact</Nav.Link>
-                {props.isAuth && <Nav.Link href="/dashboard">Dashboard</Nav.Link>}
-                {props.isAuth && <form action="/logout" method="POST"><button class="btn btn-login" type="submit">Log Out</button></form>}
-                {!props.isAuth && <a href="/login"><button class="btn btn-login" type="button">Log In</button></a>}
-                {!props.isAuth && <a href="/signup"><button class="btn btn-signup" type="button">Sign Up</button></a>}
+                {isAuth && <Nav.Link href="/dashboard">Dashboard</Nav.Link>}
+                {isAuth && <form action="/logout" method="POST"><button class="btn btn-login" type="submit">Log Out</button></form>}
+                {!isAuth && <a href="/login"><button class="btn btn-login" type="button">Log In</button></a>}
+                {!isAuth && <a href="/signup"><button class="btn btn-signup" type="button">Sign Up</button></a>}
                 
                 
                 </Nav>

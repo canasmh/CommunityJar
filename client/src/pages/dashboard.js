@@ -1,7 +1,19 @@
 import React from "react";
+import AddCommunityJar from "../components/dashboard/AddCommunityJar";
 
 function Dashboard() {
-    return (<h1>This is the dashboard page</h1>)
+    const [userData, setUserData] = React.useState({fName: null, lName: null, email: null, jars: []});
+
+    
+
+    React.useEffect(() => {
+        fetch("/fetchData")
+        .then((res) => res.json())
+        .then((userData) => setUserData({fName: userData.fName, lName: userData.lName, email: userData.email, jars: userData.jars}));
+    }, [])
+
+    return (
+        <AddCommunityJar fName={userData.fName} jars={userData.jars}/>)
 }
 
 export default Dashboard;

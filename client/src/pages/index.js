@@ -1,7 +1,7 @@
 import React from "react";
-import LandingPage from "../components/LandingPage";
-import About from "../components/About";
-import ContactForm from "../components/ContactForm";
+import LandingPage from "../components/index/LandingPage";
+import About from "../components/index/About";
+import ContactForm from "../components/index/ContactForm";
 
 
 function Home() {
