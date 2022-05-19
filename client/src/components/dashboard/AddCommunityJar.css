@@ -42,28 +42,29 @@
 }
 
 .jar-options-img {
-    width: 60%;
+    width: 15rem;
+    height: 15rem;
     border: 4px solid #FFF;
     border-radius: 100%;
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
 }
 
-#firstStep h2 {
+#firstStep h2, #secondStep h2  {
     font-family: 'Damion', cursive;
     color: #F1AE46;
     font-size: 2.5rem;
     letter-spacing: 5px;
 }
 
-#firstStep h3 {
+#firstStep h3, #secondStep h3 {
     font-size: 1.2rem;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 2px;
     color: #D9D9D4;
 }
 
-#firstStep h4 {
+#firstStep h4, #secondStep h4 {
     color: #EFEFEC;
     font-size: 1.5rem;
     font-family: 'Roboto Flex', sans-serif;
@@ -71,13 +72,23 @@
     font-weight: bolder;
 }
 
-#firstStep p {
+#firstStep p, #secondStep p, #secondStep span {
     color: #EFEFEC;
     font-size: 1.2rem;
     margin-bottom: 2rem;
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 200;
     line-height: 2;
+}
+
+#secondStep span {
+  margin-right: 0.5rem;
+}
+
+#secondStep select, #secondStep input {
+  width: 30%;
+  display: inline-block;
+  margin: 1.5rem auto;
 }
 
 @keyframes pulse {

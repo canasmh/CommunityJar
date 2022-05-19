@@ -1,5 +1,6 @@
 import React from "react";
 import FirstStep from "./FirstStep";
+import SecondStep from "./SecondStep";
 import "./AddCommunityJar.css";
 
 function AddCommunityJar(props) {
@@ -15,8 +16,7 @@ function AddCommunityJar(props) {
             <a href="#firstStep" type="button" onClick={() => !addJarSteps.firstStep ? setAddJarSteps({...addJarSteps, firstStep: true}) : null}><img className="add-jar-img" src="add-jar.png" alt='add-community-jar' /></a>
             <br />
             {addJarSteps.firstStep && <FirstStep />}
-            {/* {addJar.secondStep && <SecondStep />}
-            {addJar.thirdStep && <ThirdStep />} */}
+            {!addJarSteps.secondStep && <SecondStep />}
         </div>
         )
 }
