@@ -1,5 +1,5 @@
 import React from "react";
-import AddCommunityJar from "../components/AddCommunityJar";
+import AddCommunityJar from "../components/dashboard/AddCommunityJar";
 
 function Dashboard() {
     const [userData, setUserData] = React.useState({fName: null, lName: null, email: null, jars: []});
