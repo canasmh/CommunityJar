@@ -42,7 +42,19 @@ const userSchema = new mongoose.Schema({
   jars: {type: Array, default: []}
 });
 
+const jarSchema = new mongoose.Schema({
+  title: {type: String, required: true},
+  creator: {type: String, required: true},
+  dateCreated: {type: Date, required: true},
+  jarType: {type: Number, min: 1, max: 3, required: true},
+  depositFrequency: {type: String, min: 1, max: 7, required: true},
+  depositAmount: {type: Number, required: true},
+  withdrawFrequency: {type: Number, min: 1, max: 10, default: null},
+  members: {type: Array, required: true},
+});
+
 const User = new mongoose.model("User", userSchema);
+const Jar = new mongoose.model("Jar", jarSchema);
 
 const currentYear = new Date().getFullYear();
 
