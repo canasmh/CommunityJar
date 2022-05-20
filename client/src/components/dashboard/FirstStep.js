@@ -6,18 +6,32 @@ import "./AddCommunityJar.css";
 
 
 
-function FirstStep() {
+function FirstStep(props) {
 
-    function JarOptions(props) {
+    function secondStep(event) {
+        const whichJarOption = event.target.alt;
+        var jarType = null;
 
-        const evenColumns = (props.id % 2 === 0);
-        const lastColumn = (props.id === jarOptions.length);
+        if (whichJarOption === "option-one") {
+            jarType = 1
+        } else if (whichJarOption === "option-two") {
+            jarType = 2
+        } else if (whichJarOption === "option-three") {
+            jarType = 3
+        }
+        props.updateStep(jarType)
+    };
+
+    function JarOptions(options) {
+
+        const evenColumns = (options.id % 2 === 0);
+        const lastColumn = (options.id === jarOptions.length);
 
         return (
             <Col lg="4" md={ (!evenColumns && lastColumn) ? "12" : "6"}>
-                <h4 className="jar-options-header">{props.title}</h4>
-                <img className="jar-options-img" src={props.src} alt={props.alt}></img>
-                <p>{props.description}</p>
+                <h4 className="jar-options-header">{options.title}</h4>
+                <a href="#secondStep" type="button" onClick={secondStep} name={options.id}><img className="jar-options-img" src={options.src} alt={options.alt}></img></a>
+                <p>{options.description}</p>
             </Col>
         )
     };

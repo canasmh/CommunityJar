@@ -5,30 +5,44 @@ import Row from "react-bootstrap/Row";
 import payOptions from "./payOptions";
 import "./AddCommunityJar.css";
 
-function SecondStep() {
+function SecondStep(props) {
 
-    function PayOptions(props) {
+    function PayOptions(payOption) {
 
         const evenColumns = (props.id % 2 === 0);
         const lastColumn = (props.id === payOptions.length);
 
         return (
-            <Col lg="4" md={ (!evenColumns && lastColumn) ? "12" : "6"}>
-                <h4 className="jar-options-header">{props.title}</h4>
-                { (props.id !== 2) && <Form.Select aria-label="Default select example">
-                    <option>Frequency</option>
+            <Col lg={(props.jarType !== 3) ? "4" : "6"} md={ (!evenColumns && lastColumn) ? "12" : "6"}>
+                
+                {payOption.id === 1 ? <div><h4 className="jar-options-header">{payOption.title}</h4><span>Every</span> 
+                <Form.Select aria-label={payOption.title}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                </Form.Select>}
-                { (props.id !== 2) && <Form.Select aria-label="Default select example">
-                    <option>Unit</option>
-                    <option value="1">Week(s)</option>
-                    <option value="2">Month(s)</option>
-                </Form.Select>}
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </Form.Select> <span>Week(s)</span><p>{payOption.description}</p></div> : null}
+                
+                { (payOption.id === 2) && <div><h4 className="jar-options-header">{payOption.title}</h4><span>$</span>
+                <Form.Control type="text" placeholder="5.00" id="withdrawAmount" name="withdrawAmount" /><p>{payOption.description}</p></div>}
 
-                { (props.id === 2) && <div><span>$</span><Form.Control type="text" placeholder="5.00" id="withdrawAmount" name="withdrawAmount" /></div>}
-                <p>{props.description}</p>
+                { (payOption.id ===3 && props.jarType !== 3) ? <div><h4 className="jar-options-header">{payOption.title}</h4><span>Every</span> 
+                <Form.Select aria-label={payOption.title}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </Form.Select> <span>Week(s)</span><p>{payOption.description}</p></div> : null}
+                
             </Col>
         )
     };
@@ -43,6 +57,7 @@ function SecondStep() {
                     <PayOptions key={jar.key} title={jar.title} description={jar.description} id={jar.key}/>
                 ))};
             </Row>
+            <a href="#thirdStep"><button type="button" onClick={props.updateStep}>Continue</button></a>
         </div>
     )
 }

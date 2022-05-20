@@ -41,6 +41,22 @@
     
 }
 
+@keyframes pulse {
+  0% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+  }
+
+  50% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+  }
+  100% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+  }
+}
+
 .jar-options-img {
     width: 15rem;
     height: 15rem;
@@ -48,6 +64,18 @@
     border-radius: 100%;
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
+}
+
+.add-jar-img:hover {
+  animation-play-state: paused;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+}
+
+.fa-arrow-down {
+  color: #EFEFEC;
+  font-size: 3.5rem;
+  margin: 2.5rem auto;
 }
 
 #firstStep h2, #secondStep h2  {
@@ -82,136 +110,32 @@
 }
 
 #secondStep span {
-  margin-right: 0.5rem;
+  margin-right: 0.6rem;
+  margin-left: 0.6rem;
 }
 
 #secondStep select, #secondStep input {
-  width: 30%;
+  width: 20%;
   display: inline-block;
   margin: 1.5rem auto;
 }
 
-@keyframes pulse {
-    0% {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
-
-    50% {
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
-    }
-    100% {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
+#secondStep button {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0.5rem auto;
+  width: 12rem;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  color: #D9D9D4;
+  background-color: inherit;
+  letter-spacing: 2px;
+  border: 1px solid #D9D9D4;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.add-jar-img:hover {
-    animation-play-state: paused;
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
+#secondStep button:hover {
+  color: #F1AE46;
+  border: 1px solid #F1AE46;
+  background-color: #2b6269;
 }
-
-.fa-arrow-down {
-    color: #EFEFEC;
-    font-size: 3.5rem;
-    margin: 2.5rem auto;
-}
-  
- #about h2, #about h3, #about p {
-    margin: 2rem auto;
-  }
-  
-  #about h2 {
-    font-family: 'Damion', cursive;
-    font-size: 2.3rem;
-    color: #F1AE46;
-  }
-  
-  #about h3 {
-    font-family:'Montserrat', sans-serif;
-    font-size: 2rem;
-    color: #3C848D;
-  }
-  
-  #about p {
-    font-family: 'Roboto Flex', sans-serif;
-    font-size: 1.2rem;
-  }
-  
-  #about img {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 100%;
-    margin: 2rem 2.5rem 1rem;
-  }
-  
-  .our-mission {
-    margin: 0;
-    min-height: 40vh;
-  }
-  
-  .challenge-yourself, .plan-experience {
-    min-height: 55vh;
-  }
-  
-  @media only screen and (min-width: 600px) {
-    #about {
-      padding: 5rem 6rem;
-    }
-  
-    #about h2 {
-      font-size: 2.8rem;
-    }
-  
-    #about p {
-      font-size: 1.5rem;
-    }
-  
-    #about img {
-      width: 15rem;
-      height: 15rem;
-      margin: 3rem 2.5rem 1.5rem;
-    }
-  }
-  
-  @media only screen and (min-width: 992px) {
-    #about {
-      padding: 5rem 8rem;
-    }
-  
-    #about h2 {
-      font-size: 3rem;
-    }
-  
-    #about h3 {
-      font-size: 2.2rem;
-    }
-  
-    #about p {
-      font-size: 1.5rem;
-    }
-  
-    #about img {
-      width: 20rem;
-      height: 20rem;
-      margin: 1.2rem 2.5rem 0.5rem;
-    }
-  
-    .our-mission {
-      margin: 0 12.5rem;
-    }
-  
-    .challenge-yourself p, .plan-experience p {
-      text-align: left;
-    }
-  
-    .challenge-yourself img {
-      float: right;
-    }
-  
-    .plan-experience img {
-      float: left;
-    }
-  } 
