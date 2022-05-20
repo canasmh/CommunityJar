@@ -14,7 +14,7 @@ const payOptions = [
     {
         key: 3,
         title: "Withdraw Frequency",
-        description: "This determines how often to withdraw money from the CommunityJar and distribute to winning players."
+        description: "This determines how often to withdraw money from the CommunityJar and distribute to winning players. Must be greater than Deposity Frequency"
     }
 ]
 
