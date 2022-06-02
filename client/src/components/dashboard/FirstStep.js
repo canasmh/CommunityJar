@@ -28,7 +28,7 @@ function FirstStep(props) {
         const lastColumn = (options.id === jarOptions.length);
 
         return (
-            <Col lg="4" md={ (!evenColumns && lastColumn) ? "12" : "6"}>
+            <Col lg="4" md={ (!evenColumns && lastColumn) ? "12" : "6"} className="jar-options-div">
                 <h4 className="jar-options-header">{options.title}</h4>
                 <a href="#secondStep" type="button" onClick={secondStep} name={options.id}><img className="jar-options-img" src={options.src} alt={options.alt}></img></a>
                 <p>{options.description}</p>
