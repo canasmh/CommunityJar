@@ -16,7 +16,8 @@ function SecondStep(props) {
             <Col lg={(props.jarType !== 3) ? "4" : "6"} md={ (!evenColumns && lastColumn) ? "12" : "6"}>
                 
                 {payOption.id === 1 ? <div><h4 className="jar-options-header">{payOption.title}</h4><span>Every</span> 
-                <Form.Select aria-label={payOption.title}>
+                <Form.Select onChange={props.functions[0]} aria-label={payOption.title} value={props.values[0]}>
+                    <option value={null}>0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -27,10 +28,11 @@ function SecondStep(props) {
                 </Form.Select> <span>Week(s)</span><p>{payOption.description}</p></div> : null}
                 
                 { (payOption.id === 2) && <div><h4 className="jar-options-header">{payOption.title}</h4><span>$</span>
-                <Form.Control type="text" placeholder="5.00" id="withdrawAmount" name="withdrawAmount" /><p>{payOption.description}</p></div>}
+                <Form.Control onChange={props.functions[1]} value={props.values[1]} type="text" placeholder="0.00" id="withdrawAmount" name="withdrawAmount" /><p>{payOption.description}</p></div>}
 
                 { (payOption.id ===3 && props.jarType !== 3) ? <div><h4 className="jar-options-header">{payOption.title}</h4><span>Every</span> 
-                <Form.Select aria-label={payOption.title}>
+                <Form.Select onChange={props.functions[2]} aria-label={payOption.title} value={props.values[2]}>
+                    <option value={null}>0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
