@@ -25,6 +25,21 @@ function AddCommunityJar(props) {
         members: []
     });
 
+    function setDepositFrequency(event) {
+        const value = event.target.value;
+        setNewJar(prevJar => {return {...prevJar, depositFrequency: value}})
+    }
+
+    function setDepositAmount(event) {
+        const value = event.target.value;
+        setNewJar(prevJar => {return {...prevJar, depositAmount: value}})
+    }
+
+    function setWithdrawFrequency(event) {
+        const value = event.target.value;
+        setNewJar(prevJar => {return {...prevJar, withdrawFrequency: value}})
+    }
+
     function updateFirstStep() {
         if (!addJarSteps.firstStep) {
             setAddJarSteps(prevSteps => {
@@ -34,9 +49,7 @@ function AddCommunityJar(props) {
                 }
             );
         }
-
         console.log(addJarSteps);
-        
     };
 
     function updateSecondStep(jarType) {
@@ -57,7 +70,14 @@ function AddCommunityJar(props) {
             <a href="#firstStep" type="button" onClick={updateFirstStep}><img className="add-jar-img" src="add-jar.png" alt='add-community-jar' /></a>
             <br />
             {addJarSteps.firstStep && <FirstStep updateStep={updateSecondStep}/>}
-            {addJarSteps.secondStep && <SecondStep jarType={newJar.jarType} updateStep={updateThirdStep}/>}
+
+            {addJarSteps.secondStep && <SecondStep 
+            jarType={newJar.jarType} 
+            updateStep={updateThirdStep} 
+            functions={[setDepositFrequency, setDepositAmount, setWithdrawFrequency]} 
+            values={[newJar.depositFrequency, newJar.depositAmount, newJar.withdrawFrequency]}/>
+            }
+
             {addJarSteps.thirdStep && <ThirdStep />}
         </div>
         )
