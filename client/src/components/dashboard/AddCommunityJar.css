@@ -58,12 +58,16 @@
 }
 
 .jar-options-img {
-    width: 15rem;
-    height: 15rem;
+    width: 10rem;
+    height: 10rem;
     border: 4px solid #FFF;
     border-radius: 100%;
-    margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.jar-options-div {
+  padding: 0 2.5rem;
 }
 
 .add-jar-img:hover {
@@ -78,21 +82,21 @@
   margin: 2.5rem auto;
 }
 
-#firstStep h2, #secondStep h2  {
+#firstStep h2, #secondStep h2, #thirdStep h2 {
     font-family: 'Damion', cursive;
     color: #F1AE46;
     font-size: 2.5rem;
     letter-spacing: 5px;
 }
 
-#firstStep h3, #secondStep h3 {
+#firstStep h3, #secondStep h3, #thirdStep h3  {
     font-size: 1.2rem;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 2px;
     color: #D9D9D4;
 }
 
-#firstStep h4, #secondStep h4 {
+#firstStep h4, #secondStep h4, #thirdStep h4  {
     color: #EFEFEC;
     font-size: 1.5rem;
     font-family: 'Roboto Flex', sans-serif;
@@ -100,9 +104,9 @@
     font-weight: bolder;
 }
 
-#firstStep p, #secondStep p, #secondStep span {
+#firstStep p, #secondStep p, #secondStep span, #thirdStep p  {
     color: #EFEFEC;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 200;
@@ -114,13 +118,13 @@
   margin-left: 0.6rem;
 }
 
-#secondStep select, #secondStep input {
-  width: 20%;
+#secondStep select, #secondStep input  {
+  width: 4rem;
   display: inline-block;
   margin: 1.5rem auto;
 }
 
-#secondStep button {
+#secondStep button, #thirdStep button {
   display: inline-block;
   font-size: 1.2rem;
   margin: 0.5rem auto;
@@ -134,8 +138,39 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-#secondStep button:hover {
+#secondStep button:hover, #thirdStep button:hover {
   color: #F1AE46;
   border: 1px solid #F1AE46;
   background-color: #2b6269;
+}
+
+#thirdStep input {
+  display: inline-block;
+  width: 12.5rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+#thirdStep div input:first-child {
+  margin-top: 1rem;
+}
+
+#thirdStep div input:last-child {
+  margin-bottom: 3rem;
+}
+
+#thirdStep button.finished-btn {
+  margin-top: 2.5rem;
+}
+
+#thirdStep p.max-invites {
+  font-size: 0.7rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.fa-user-plus {
+  margin-left: 0.8rem;
+  font-size: 1.5rem;
+  color: #F1AE46;
 }
