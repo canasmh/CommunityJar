@@ -12,14 +12,14 @@ function FirstStep(props) {
         const whichJarOption = event.target.alt;
         var jarType = null;
 
-        if (whichJarOption === "option-one") {
-            jarType = 1
-        } else if (whichJarOption === "option-two") {
-            jarType = 2
-        } else if (whichJarOption === "option-three") {
-            jarType = 3
+        if (whichJarOption === "challenge-yourself") {
+            jarType = 1;
+        } else if (whichJarOption === "challenge-friends") {
+            jarType = 2;
+        } else if (whichJarOption === "the-community-jar") {
+            jarType = 3;
         }
-        props.updateStep(jarType)
+        props.updateStep(jarType);
     };
 
     function JarOptions(options) {
@@ -38,7 +38,7 @@ function FirstStep(props) {
 
     return (
         <div id="firstStep">
-            <i  class="fa-solid fa-arrow-down"></i>
+            <i className="fa-solid fa-arrow-down"></i>
             <h2>Step One</h2>
             <h3>Select Your CommunityJar</h3>
             <p>Select the image that best describes your CommunityJar.</p>
