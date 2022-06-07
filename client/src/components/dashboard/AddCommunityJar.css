@@ -154,6 +154,14 @@
   background-color: #2b6269;
 }
 
+#secondStep p.error {
+  color: #f0c6c0;
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: 0;
+  margin: 0.1rem auto;
+}
+
 #thirdStep input {
   display: inline-block;
   width: 12.5rem;
@@ -183,4 +191,14 @@
   margin-left: 0.8rem;
   font-size: 1.5rem;
   color: #F1AE46;
+}
+
+@media only screen and (min-width: 992px) {
+  #secondStep .col-lg-6 {
+    padding: 3rem 8rem;
+  }
+
+  #secondStep .col-lg-4 {
+    padding: 3rem 2.5rem;
+  }
 }
