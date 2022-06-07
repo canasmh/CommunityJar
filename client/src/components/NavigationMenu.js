@@ -25,9 +25,9 @@ function NavigationMenu() {
                 <Nav.Link href="/#about">About</Nav.Link>
                 <Nav.Link href="/#contact">Contact</Nav.Link>
                 {isAuth && <Nav.Link href="/dashboard">Dashboard</Nav.Link>}
-                {isAuth && <form action="/logout" method="POST"><button class="btn btn-login" type="submit">Log Out</button></form>}
-                {!isAuth && <a href="/login"><button class="btn btn-login" type="button">Log In</button></a>}
-                {!isAuth && <a href="/signup"><button class="btn btn-signup" type="button">Sign Up</button></a>}
+                {isAuth && <form action="/logout" method="POST"><button className="btn btn-login" type="submit">Log Out</button></form>}
+                {!isAuth && <a href="/login"><button className="btn btn-login" type="button">Log In</button></a>}
+                {!isAuth && <a href="/signup"><button className="btn btn-signup" type="button">Sign Up</button></a>}
                 
                 
                 </Nav>
