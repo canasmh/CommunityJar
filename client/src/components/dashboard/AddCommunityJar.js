@@ -25,6 +25,12 @@ function AddCommunityJar(props) {
         members: []
     });
 
+    const [secondStepErrors, setSecondStepErrors] = React.useState({
+        errorFirst: false,
+        errorSecond: false,
+        errorThird: false
+    })
+
     function setDepositFrequency(event) {
         const value = event.target.value;
         setNewJar(prevJar => {return {...prevJar, depositFrequency: value}})
@@ -49,7 +55,6 @@ function AddCommunityJar(props) {
                 }
             );
         }
-        console.log(addJarSteps);
     };
 
     function updateSecondStep(jarType) {
@@ -59,7 +64,39 @@ function AddCommunityJar(props) {
     };
 
     function updateThirdStep() {
-        setAddJarSteps(prevSteps => {return {...prevSteps, thirdStep: true}});
+        var error=false;
+        if (newJar.depositFrequency) {
+            setSecondStepErrors(prevErrs => {return {...prevErrs, errorFirst: false}})
+        } else {
+            setSecondStepErrors(prevErrs => {return {...prevErrs, errorFirst: true}})
+            error=true;
+        }
+
+        if (newJar.depositAmount) {
+            setSecondStepErrors(prevErrs => {return {...prevErrs, errorSecond: false}})
+        } else {
+            setSecondStepErrors(prevErrs => {return {...prevErrs, errorSecond: true}})
+            error=true;
+        }
+        if (newJar.withdrawFrequency) {
+            setSecondStepErrors(prevErrs => {return {...prevErrs, errorThird: false}})
+        } else {
+            if (newJar.jarType === 3) {
+                setSecondStepErrors(prevErrs => {return {...prevErrs, errorThird: false}})
+            }
+            else {
+                setSecondStepErrors(prevErrs => {return {...prevErrs, errorThird: true}})
+                error=true;
+            }   
+        }
+
+        if (error) {
+            console.log(secondStepErrors)
+            setAddJarSteps(prevSteps => {return {...prevSteps, thirdStep: false}});
+        } else {
+            setAddJarSteps(prevSteps => {return {...prevSteps, thirdStep: true}});
+        }
+            
     };
     
 
@@ -70,12 +107,13 @@ function AddCommunityJar(props) {
             <a href="#firstStep" type="button" onClick={updateFirstStep}><img className="add-jar-img" src="add-jar.png" alt='add-community-jar' /></a>
             <br />
             {addJarSteps.firstStep && <FirstStep updateStep={updateSecondStep}/>}
-
             {addJarSteps.secondStep && <SecondStep 
             jarType={newJar.jarType} 
             updateStep={updateThirdStep} 
             functions={[setDepositFrequency, setDepositAmount, setWithdrawFrequency]} 
-            values={[newJar.depositFrequency, newJar.depositAmount, newJar.withdrawFrequency]}/>
+            values={[newJar.depositFrequency, newJar.depositAmount, newJar.withdrawFrequency]}
+            errors={secondStepErrors}
+            />
             }
 
             {addJarSteps.thirdStep && <ThirdStep />}
